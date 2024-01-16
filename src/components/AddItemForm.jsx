@@ -1,6 +1,8 @@
 import Button from "./Button";
+import { useState } from "react";
 
-export default function AddItemForm({ setText, text, setItems }) {
+export default function AddItemForm({ setItems }) {
+  const [text, setText] = useState("");
   const handleChange = (e) => {
     setText(e.target.value);
   };

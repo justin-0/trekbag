@@ -7,7 +7,6 @@ import ItemList from "./components/ItemList";
 import Sidebar from "./components/Sidebar";
 
 export default function App() {
-  const [text, setText] = useState("");
   const [items, setItems] = useState(initialItems);
 
   return (
@@ -16,7 +15,7 @@ export default function App() {
       <main>
         <HeadingBar />
         <ItemList items={items} />
-        <Sidebar setText={setText} text={text} setItems={setItems} />
+        <Sidebar setItems={setItems} />
       </main>
       <Footer />
     </>
