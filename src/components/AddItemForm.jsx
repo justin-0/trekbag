@@ -1,7 +1,7 @@
 import Button from "./Button";
 import { useState, useRef } from "react";
 
-export default function AddItemForm({ setItems }) {
+export default function AddItemForm({ handleAddItem }) {
   const [text, setText] = useState("");
   const inputRef = useRef();
 
@@ -9,22 +9,17 @@ export default function AddItemForm({ setItems }) {
     setText(e.target.value);
   };
 
-  console.log(inputRef.current);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (text === "") {
       inputRef.current.focus();
       return;
     }
-    setItems((i) => [
-      ...i,
-      {
-        id: i.length + 1,
-        name: text,
-        packed: false,
-      },
-    ]);
+    handleAddItem({
+      id: Date.now() + 10,
+      name: text,
+      packed: false,
+    });
     setText("");
   };
 

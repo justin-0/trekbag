@@ -9,13 +9,18 @@ import Sidebar from "./components/Sidebar";
 export default function App() {
   const [items, setItems] = useState(initialItems);
 
+  const handleAddItem = (newItem) => {
+    const newItems = [...items, newItem];
+    setItems(newItems);
+  };
+
   return (
     <>
       <BackgroundHeading />
       <main>
         <HeadingBar />
         <ItemList items={items} />
-        <Sidebar setItems={setItems} />
+        <Sidebar handleAddItem={handleAddItem} />
       </main>
       <Footer />
     </>
