@@ -32,12 +32,33 @@ export default function App() {
 
   const handleInitialItems = () => setItems(initialItems);
 
+  const handleCompleteItem = (id) => {
+    const index = items.findIndex((item) => item.id === id);
+    const updatedItems = [...items];
+
+    updatedItems[index] = {
+      ...updatedItems[index],
+      packed: !updatedItems[index].packed,
+    };
+
+    console.log(updatedItems);
+
+    setItems(updatedItems);
+  };
+
+  const handleDeleteItem = (id) =>
+    setItems(items.filter((item) => item.id !== id));
+
   return (
     <>
       <BackgroundHeading />
       <main>
         <HeadingBar items={items} />
-        <ItemList items={items} />
+        <ItemList
+          items={items}
+          handleCompleteItem={handleCompleteItem}
+          handleDeleteItem={handleDeleteItem}
+        />
         <Sidebar
           handleAddItem={handleAddItem}
           handleCompleteAll={handleCompleteAll}
