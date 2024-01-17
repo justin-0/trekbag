@@ -20,7 +20,7 @@ export default function ItemList({
 function Item({ item, handleCompleteItem, handleDeleteItem }) {
   return (
     <li className="item">
-      <label onClick={() => handleCompleteItem(item.id)}>
+      <label onChange={() => handleCompleteItem(item.id)}>
         <input type="checkbox" checked={item.packed} onChange={() => {}} />
         {item.name}
       </label>

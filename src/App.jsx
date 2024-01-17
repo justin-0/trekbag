@@ -33,17 +33,16 @@ export default function App() {
   const handleInitialItems = () => setItems(initialItems);
 
   const handleCompleteItem = (id) => {
-    const index = items.findIndex((item) => item.id === id);
-    const updatedItems = [...items];
-
-    updatedItems[index] = {
-      ...updatedItems[index],
-      packed: !updatedItems[index].packed,
-    };
-
-    console.log(updatedItems);
-
-    setItems(updatedItems);
+    const newItems = items.map((item) => {
+      if (item.id === id) {
+        return {
+          ...item,
+          packed: !item.packed,
+        };
+      }
+      return item;
+    });
+    setItems(newItems);
   };
 
   const handleDeleteItem = (id) =>
