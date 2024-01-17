@@ -14,13 +14,37 @@ export default function App() {
     setItems(newItems);
   };
 
+  const handleCompleteAll = () => {
+    const packed = items.map((item) => {
+      return { ...item, packed: true };
+    });
+    setItems(packed);
+  };
+
+  const handleIncompleteAll = () => {
+    const unpacked = items.map((item) => {
+      return { ...item, packed: false };
+    });
+    setItems(unpacked);
+  };
+
+  const handleResetItems = () => setItems([]);
+
+  const handleInitialItems = () => setItems(initialItems);
+
   return (
     <>
       <BackgroundHeading />
       <main>
-        <HeadingBar />
+        <HeadingBar items={items} />
         <ItemList items={items} />
-        <Sidebar handleAddItem={handleAddItem} />
+        <Sidebar
+          handleAddItem={handleAddItem}
+          handleCompleteAll={handleCompleteAll}
+          handleIncompleteAll={handleIncompleteAll}
+          handleInitialItems={handleInitialItems}
+          handleResetItems={handleResetItems}
+        />
       </main>
       <Footer />
     </>

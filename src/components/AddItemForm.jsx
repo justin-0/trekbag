@@ -15,6 +15,7 @@ export default function AddItemForm({ handleAddItem }) {
       inputRef.current.focus();
       return;
     }
+
     handleAddItem({
       id: Date.now() + 10,
       name: text,

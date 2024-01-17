@@ -1,11 +1,11 @@
 import ItemsTracker from "./ItemsTracker";
 import Logo from "./Logo";
 
-export default function HeadingBar() {
+export default function HeadingBar({ items }) {
   return (
     <header>
       <Logo />
-      <ItemsTracker />
+      <ItemsTracker items={items} />
     </header>
   );
 }
