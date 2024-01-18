@@ -10,6 +10,7 @@ export default function ItemContextProvier({ children }) {
 
   const totalItems = items.length;
   const totalPacked = items.filter((item) => item.packed === true).length;
+
   const handleAddItem = (newItem) => {
     const newItems = [...items, newItem];
     setItems(newItems);

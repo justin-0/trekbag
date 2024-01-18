@@ -6,7 +6,7 @@ export const useItemsContext = () => {
 
   if (!context) {
     throw new Error(
-      "useItemsContext is not available, must be used within ItemContextProvider"
+      `useItemsContext is not available, must be used within ItemContextProvider.`
     );
   }
 
