@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import { ItemContext } from "../contexts/ItemContextProvider";
+import { useItemsContext } from "../lib/hooks";
 
 export default function ItemsTracker() {
-  const { totalPacked, totalItems } = useContext(ItemContext);
+  const { totalPacked, totalItems } = useItemsContext();
 
   return (
     <p>
