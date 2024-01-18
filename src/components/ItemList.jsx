@@ -8,11 +8,7 @@ const options = [
   { value: "unpacked", label: "Sort by Unpacked" },
 ];
 
-export default function ItemList({
-  items,
-  handleCompleteItem,
-  handleDeleteItem,
-}) {
+export default function ItemList() {
   const [sortBy, setSortBy] = useState("default");
 
   const sortedItems = items.toSorted((a, b) => {

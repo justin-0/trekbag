@@ -1,7 +1,7 @@
 import Button from "./Button";
 import { useState, useRef } from "react";
 
-export default function AddItemForm({ handleAddItem }) {
+export default function AddItemForm() {
   const [text, setText] = useState("");
   const inputRef = useRef();
 

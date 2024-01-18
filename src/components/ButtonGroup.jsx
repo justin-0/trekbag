@@ -1,11 +1,6 @@
 import Button from "./Button";
 
-export default function ButtonGroup({
-  onCompleteAll,
-  onIncompleteAll,
-  onInitialItems,
-  onResetItems,
-}) {
+export default function ButtonGroup() {
   return (
     <div className="button-group">
       <Button secondary={true} onClick={onCompleteAll}>

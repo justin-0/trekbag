@@ -1,4 +1,4 @@
-export default function ItemsTracker({ totalPacked, totalItems }) {
+export default function ItemsTracker() {
   return (
     <p>
       <b>{totalPacked}</b>
