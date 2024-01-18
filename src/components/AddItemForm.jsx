@@ -1,7 +1,10 @@
+import { ItemContext } from "../contexts/ItemContextProvider";
 import Button from "./Button";
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
 
 export default function AddItemForm() {
+  const { handleAddItem } = useContext(ItemContext);
+
   const [text, setText] = useState("");
   const inputRef = useRef();
 

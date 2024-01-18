@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { initialItems } from "../constants/initial-items";
 
-const ItemContext = createContext();
+export const ItemContext = createContext();
 
 export default function ItemContextProvier({ children }) {
   const [items, setItems] = useState(
@@ -55,8 +55,8 @@ export default function ItemContextProvier({ children }) {
 
   return (
     <ItemContext.Provider
-      value={
-        (items,
+      value={{
+        items,
         totalItems,
         totalPacked,
         handleAddItem,
@@ -65,8 +65,8 @@ export default function ItemContextProvier({ children }) {
         handleResetItems,
         handleInitialItems,
         handleCompleteItem,
-        handleDeleteItem)
-      }
+        handleDeleteItem,
+      }}
     >
       {children}
     </ItemContext.Provider>
