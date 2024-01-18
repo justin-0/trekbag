@@ -9,6 +9,10 @@ import Sidebar from "./components/Sidebar";
 export default function App() {
   const [items, setItems] = useState(initialItems);
 
+  const totalItems = items.length;
+  const totalPacked = items.filter((item) => item.packed === true).length;
+  console.log(totalPacked);
+
   const handleAddItem = (newItem) => {
     const newItems = [...items, newItem];
     setItems(newItems);
@@ -52,7 +56,7 @@ export default function App() {
     <>
       <BackgroundHeading />
       <main>
-        <HeadingBar items={items} />
+        <HeadingBar totalItems={totalItems} totalPacked={totalPacked} />
         <ItemList
           items={items}
           handleCompleteItem={handleCompleteItem}

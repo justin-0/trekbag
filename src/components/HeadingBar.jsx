@@ -1,11 +1,11 @@
 import ItemsTracker from "./ItemsTracker";
 import Logo from "./Logo";
 
-export default function HeadingBar({ items }) {
+export default function HeadingBar({ totalItems, totalPacked }) {
   return (
     <header>
       <Logo />
-      <ItemsTracker items={items} />
+      <ItemsTracker totalItems={totalItems} totalPacked={totalPacked} />
     </header>
   );
 }

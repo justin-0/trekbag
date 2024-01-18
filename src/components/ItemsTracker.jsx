@@ -1,10 +1,8 @@
-export default function ItemsTracker({ items }) {
-  const packed = items.filter((item) => item.packed === true);
-
+export default function ItemsTracker({ totalPacked, totalItems }) {
   return (
     <p>
-      <b>{packed.length}</b>
-      {` / ${items.length} items packed`}
+      <b>{totalPacked}</b>
+      {` / ${totalItems} items packed`}
     </p>
   );
 }
