@@ -3,9 +3,9 @@ import { useState } from "react";
 import Select from "react-select";
 
 const options = [
-  { value: "chocolate", label: "Chocolate" },
-  { value: "strawberry", label: "Strawberry" },
-  { value: "vanilla", label: "Vanilla" },
+  { value: "default", label: "Sort by Default" },
+  { value: "packed", label: "Sort by Packed" },
+  { value: "unpacked", label: "Sort by Unpacked" },
 ];
 
 export default function ItemList({
@@ -13,7 +13,19 @@ export default function ItemList({
   handleCompleteItem,
   handleDeleteItem,
 }) {
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [sortBy, setSortBy] = useState("default");
+
+  const sortedItems = items.toSorted((a, b) => {
+    if (sortBy === "packed") {
+      return b.packed - a.packed;
+    }
+
+    if (sortBy === "unpacked") {
+      return a.packed - b.packed;
+    }
+
+    return;
+  });
 
   return (
     <ul className="item-list">
@@ -21,13 +33,13 @@ export default function ItemList({
       {items.length > 0 ? (
         <div className="sorting">
           <Select
-            defaultValue={selectedOption}
-            onChange={setSelectedOption}
+            defaultValue={options[0]}
+            onChange={(option) => setSortBy(option.value)}
             options={options}
           />
         </div>
       ) : null}
-      {items.map((item) => (
+      {sortedItems.map((item) => (
         <Item
           key={item.id}
           item={item}
