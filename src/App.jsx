@@ -7,9 +7,9 @@ import ItemList from "./components/ItemList";
 import Sidebar from "./components/Sidebar";
 
 export default function App() {
-  const localStorageItems = JSON.parse(localStorage.getItem("items"));
-
-  const [items, setItems] = useState(localStorageItems || initialItems);
+  const [items, setItems] = useState(
+    () => JSON.parse(localStorage.getItem("items")) || initialItems
+  );
 
   const totalItems = items.length;
   const totalPacked = items.filter((item) => item.packed === true).length;
